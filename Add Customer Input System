@@ -1,0 +1,27 @@
+ // Accept number of customers
+        System.out.print("Enter number of customers: ");
+        int numberOfCustomers = input.nextInt();
+
+        double totalDeposits = 0;
+        double totalInterest = 0;
+
+        System.out.println("\n===== MICROFINANCE BANK =====");
+
+        for (int i = 1; i <= numberOfCustomers; i++) {
+
+            System.out.println("\nCustomer " + i);
+
+            // Accept customer information
+            input.nextLine();
+
+            System.out.print("Enter customer name: ");
+            String name = input.nextLine();
+
+            System.out.print("Enter deposit amount: ");
+            int deposit = input.nextInt();
+
+            System.out.print("Enter annual interest rate (%): ");
+            double rate = input.nextDouble();
+
+            System.out.print("Enter saving period (years): ");
+            int years = input.nextInt();
