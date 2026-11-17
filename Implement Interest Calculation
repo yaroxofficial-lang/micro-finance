@@ -1,0 +1,7 @@
+
+            // Automatic type conversion
+            double depositAmount = deposit;
+
+            // Calculate simple interest
+            double interest =
+                    depositAmount * rate * years / 100;
