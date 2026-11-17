@@ -1,0 +1,84 @@
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        // Accept number of customers
+        System.out.print("Enter number of customers: ");
+        int numberOfCustomers = input.nextInt();
+
+        double totalDeposits = 0;
+        double totalInterest = 0;
+
+        System.out.println("\n===== MICROFINANCE BANK =====");
+
+        for (int i = 1; i <= numberOfCustomers; i++) {
+
+            System.out.println("\nCustomer " + i);
+
+            // Accept customer information
+            input.nextLine();
+
+            System.out.print("Enter customer name: ");
+            String name = input.nextLine();
+
+            System.out.print("Enter deposit amount: ");
+            int deposit = input.nextInt();
+
+            System.out.print("Enter annual interest rate (%): ");
+            double rate = input.nextDouble();
+
+            System.out.print("Enter saving period (years): ");
+            int years = input.nextInt();
+
+            // Automatic type conversion
+            double depositAmount = deposit;
+
+            // Calculate simple interest
+            double interest =
+                    depositAmount * rate * years / 100;
+
+            // Manual type conversion
+            int truncatedInterest = (int) interest;
+
+            // Round interest for accounting
+            long roundedInterest = Math.round(interest);
+
+            double finalBalance = depositAmount + interest;
+
+            // Update summary totals
+            totalDeposits += depositAmount;
+            totalInterest += interest;
+
+            // Display customer report
+            System.out.println("\n--- CUSTOMER REPORT ---");
+            System.out.println("Customer Name: " + name);
+            System.out.println("Original Deposit: " + deposit);
+            System.out.println("Calculated Interest: " + interest);
+            System.out.println("Truncated Interest: " + truncatedInterest);
+            System.out.println("Rounded Interest: " + roundedInterest);
+            System.out.println("Final Balance: " + finalBalance);
+        }
+
+        // Generate management summary
+        System.out.println("\n===== MANAGEMENT SUMMARY =====");
+
+        System.out.println("Total Deposits: " + totalDeposits);
+
+        System.out.println("Total Interest: " + totalInterest);
+
+        System.out.println("Rounded Total Interest: "
+                + Math.round(totalInterest));
+
+        System.out.println("Total Savings Balance: "
+                + (totalDeposits + totalInterest));
+
+        System.out.println("\n===== END OF REPORT =====");
+
+        input.close();
+    }
+}
